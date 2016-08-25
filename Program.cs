@@ -68,9 +68,9 @@ namespace Xamarin.Course.LINQ
             Console.WriteLine("After OrderBy");
             var query2 = query.Select(pet => pet.Kind.Name);
             Console.WriteLine("After Select");
-            
-            //int items = query2.Count();
-            //Console.WriteLine("After Count");
+
+            int items = query2.Count();
+            Console.WriteLine("After Count");
 
             foreach (var item in query)
             {
