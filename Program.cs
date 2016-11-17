@@ -57,25 +57,53 @@ namespace Xamarin.Course.LINQ
                 new Person("Newton Dynamose", 1657)
             });
 
-            // Register handlers, so we will know when the lists are enumerated
-            pets.Enumerated += (s, e) => Console.WriteLine("*** Pets enumerated ***");
-            people.Enumerated += (s, e) => Console.WriteLine("*** People enumerated ***");
+            // opgave 2 a
+            Console.WriteLine("Opgave 2 a");
+            Console.WriteLine("\n");
 
-            Console.WriteLine("Before calling any LINQ methods");
-            var query = pets.Where(pet => pet.Kind.Legs > 2);
-            Console.WriteLine("After Where");
-            query = query.OrderBy(pet => pet.Name);
-            Console.WriteLine("After OrderBy");
-            var query2 = query.Select(pet => pet.Kind.Name);
-            Console.WriteLine("After Select");
-
-            int items = query2.Count();
-            Console.WriteLine("After Count");
-
-            foreach (var item in query)
+            var pepolebirthyear = people.Where(p => p.BirthYear == 1972);
+            foreach (var p in pepolebirthyear)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine("p: {0} {1}",p.Name, p.BirthYear);
+                
             }
+            Console.WriteLine("\n");
+
+            // opgave 2 b
+            Console.WriteLine("Opgave 2 b");
+            Console.WriteLine("\n");
+
+            var pepoleName = people.OrderBy(p => p.Name  );
+            
+            foreach (var p in pepoleName )
+            {
+                Console.WriteLine("navn:" + p.Name );
+
+            }
+            Console.WriteLine("\n");
+
+
+
+            // Register handlers, so we will know when the lists are enumerated
+            //pets.Enumerated += (s, e) => Console.WriteLine("*** Pets enumerated ***");
+            //people.Enumerated += (s, e) => Console.WriteLine("*** People enumerated ***");
+
+            //Console.WriteLine("Before calling any LINQ methods");
+            //var query = pets.Where(pet => pet.Kind.Legs > 2);
+            //Console.WriteLine("After Where");
+            //query = query.OrderBy(pet => pet.Name);
+            //Console.WriteLine("After OrderBy");
+            //var query2 = query.Select(pet => pet.Kind.Name);
+            //Console.WriteLine("After Select");
+
+            //int items = query2.Count();
+            //Console.WriteLine("After Count");
+
+
+            //foreach (var item in query)
+            //{
+            //    Console.WriteLine(item.Name);
+            //}
 
             Console.ReadKey();
         }
